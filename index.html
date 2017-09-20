@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Liste de Tâches</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>TO DO LIST</h1>
+	<div id="container">
+		<!-- the to-do list -->
+		<div class="column">
+			<ul id="todo-list">
+                <li>Tâche #1 
+                <button type="button">Remove</button></li>
+			    <li>Tâche #2 
+                <button type="button" onclick='document.parent.removeChild()'>Remove</button></li>
+			</ul>
+		</div>
+
+		<!-- form pour ajouter une tâche à la liste -->
+		<div class="column">
+			<form id="todo-form">
+			    <label>Ajouter une tâche</label><br/>
+			    <input name="todo-form-add" id="todo-form-add" type="text" placeholder="Nouvelle tâche">
+			    <input type='button' onclick='addTache()' value='Ajouter'/> 
+			</form> 
+		</div>
+
+	</div>
+	<script type="text/javascript">
+
+	function addTache()
+	{
+ 		// récupérer valeur
+		var tache = document.getElementById("todo-form-add").value;
+
+		// créer une partie html
+		var li = document.createElement('li')
+		var button = document.createElement('button')
+		button.setAttribute('type', 'button')
+		button.appendChild(document.createTextNode('Remove'))
+		var buttonSauvegarde = document.createElement('button')
+		buttonSauvegarde.setAttribute('type', 'button')
+		buttonSauvegarde.appendChild(document.createTextNode('Enregistrer'))
+		var text = document.createTextNode(tache)
+		li.appendChild(text)
+		li.appendChild(button)
+		li.appendChild(buttonSauvegarde)
+
+		document.getElementById('todo-list').appendChild(li)
+		addRemoveListener(button)
+	}
+
+	function addRemoveListener (button) {
+		button.addEventListener('click', function (event) {
+			var button = event.target
+			var li = button.parentNode
+			var ul = li.parentNode
+
+			ul.removeChild(li)
+		})
+	}
+
+	var buttonSauvegarde = document.getElementById('todo-list').querySelectorAll('button')
+	for (var i = 0; i < buttonSauvegarde.length; i++) {
+		localStorage.setItem(i, buttonSauvegarde.values)
+	}
+
+	var buttons = document.getElementById('todo-list').querySelectorAll('button')
+	for (var i = 0; i < buttons.length; i++) {
+		addRemoveListener(buttons[i])
+	}
+
+	function removeTache()
+	{ 
+		var button = this
+		
+		console.log(this)
+	}
+
+	
+	localStorage.getItem(0)
+	</script>
+</body>
+</html>

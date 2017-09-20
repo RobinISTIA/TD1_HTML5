@@ -1,0 +1,27 @@
+* {
+    font-family: Verdana, Geneva, Tahoma;
+}
+
+#container {
+	margin: 40px auto;
+	overflow: visible;
+    width: 800px;
+    
+}
+
+.column {
+	float: left;
+    width: 200px;
+    border : 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#todo-form {
+    padding: 5px;
+}
+
+h1 {
+    font-size: 18px;
+    font-style: oblique;
+}
