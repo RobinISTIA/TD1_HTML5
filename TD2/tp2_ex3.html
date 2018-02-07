@@ -47,7 +47,7 @@
         height: 18px; 
       }
       /* Etape 3: Votre code CSS doit être ici */
-      #sortable {
+      /*#sortable {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -59,9 +59,16 @@
         padding-left: 1.5em;
         font-size: 1.0em;
         height: 12px;
-      }
+      }*/
+      #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+      #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+      #sortable li span { position: absolute; margin-left: -1.3em; }
       /* Etape 4: Votre code CSS doit être ici */
-      
+      .color_swatch{
+        height: 50px;
+        width: 50px;
+      }
+
     </style>
     
     <script>
@@ -72,10 +79,27 @@
       /* Etape 2: Votre code JS doit être ici */
       $("#selectable").selectable()
       /* Etape 3: Votre code JS doit être ici */
-      
+      $( "#sortable" ).sortable();
+      $( "#sortable" ).disableSelection();
       /* Etape 4: Votre code JS doit être ici */
-
+      $( document ).tooltip();
+      $(document).tooltip({
+          items: "[title], [class]",
+          content: function() {
+             var element = $(this);
+             if (element.is("[title]")){
+                return element.attr("title");
+             }
+             if (element.is("[class]")){
+                if (element.attr("class") == "ui-state-default") {
+                   var text = element.text();
+                   return "<div class='color_swatch' style='background:" + text + "'></div>"
+                }
+             }
+          }
+      });
     });
+    
     </script>
   </head>
   <body>
@@ -92,13 +116,12 @@
     <div id="year_input">
   <h3>En quelle année êtes vous ?</h3>
   <ol id="selectable">
-      <li class="ui-widget-content">
-        
-        <label for="ugrad">EI4</label>
+      <li class="ui-widget-content"> 
+        <label for="ugrad" title="Voici la 4eme année de l'ISTIA">EI4</label>
       </li>
       <li class="ui-widget-content">
         
-        <label for="grad">EI5</label>
+        <label for="grad" title="Voici la 5eme année de l'ISTIA">EI5</label>
       </li>
   </ol>
       <!-- Etape 2: Code HTML ici -->
@@ -107,7 +130,8 @@
     <div id="color_input">
       
       <h3> Classer la liste  des couleurs : de celle que vous préférez (1) à celle qui retient le moins votre attention (5).</h3>
-      <ul id="sortable">
+      <!--<ul id="sortable">
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
         <li class="ui-widget-content">
           
           <label for="red">#ff0000</label><br/>
@@ -128,6 +152,13 @@
           
           <label for="dark_green">#125e18</label><br/>
         </li class="ui-widget-content">
+      </ul> -->
+      <ul id="sortable">
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ff0000</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#0000ff</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ff00b3</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ded447</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#125e18</li>
       </ul>
       <!-- Etape 3: Code HTML Ici -->
 
