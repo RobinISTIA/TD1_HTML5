@@ -45,12 +45,23 @@
 
       $("#button_draw_rotated_triangle").click(function() {
         /* Etape 3 : code JS */
-        
+        ctx.beginPath();
+        ctx.lineWidth=3;
+        ctx.translate(150,150)
+        ctx.rotate(90*Math.PI/180)
+        ctx.translate(-150,-150)
+        ctx.moveTo(60,240)
+        ctx.lineTo(150,60)
+        ctx.lineTo(240,240)
+        ctx.lineTo(60,240)
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.stroke();
       });
 
       $("#button_clear_canvas").click(function() {
         /* Etape 4 : code JS */
-
+        ctx.clearRect(0,0, 300, 300)
       });
       
     });
