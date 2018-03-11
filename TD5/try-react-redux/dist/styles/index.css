@@ -1,0 +1,44 @@
+
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+
+* { box-sizing: border-box }
+
+body { font-family: Helvetica, Arial }
+
+main {
+  width: 1024px;
+  min-height: 100%;
+  background-color: #eee;
+  color: #444;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+article { width: 100%; padding-bottom: 1.5em; border-top: solid 1px #999; }
+
+h1, h2, h3 {
+  font-family: 'Liberation Serif';
+  font-weight: normal;
+  margin: 0 0 1.5em 1;
+}
+
+body, h1, h2, h3, p, li { line-height: 1.5em }
+
+h1 { font-size: 2.5em }
+h2 { font-size: 2.0em }
+h3 { font-size: 1.5em }
+
+select { font-size: .9em }

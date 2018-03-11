@@ -1,0 +1,22 @@
+{
+  "name": "try-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --progress --colors"
+  },
+  "author": "rflavi",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.16.1"
+  }
+}
